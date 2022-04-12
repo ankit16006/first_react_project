@@ -1,38 +1,98 @@
-.App {
-  text-align: center;
+#header{
+  /* width: 100%;
+  height: 80vh; */
+  margin-top: 70px;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+#header h1{
+  /* margin: 0 0 10px 0; */
+  font-size: 48px;
+  font-weight: 700;
+  color: black;
 }
+#header .brand-name{
+  color: #3498db;
+}
+#header h2{
+  color: #484848;
+  font-size: 24px;
+}
+#header .btn-get-started{
+  font-weight: 500;
+  font-size: 16px;
+  letter-spacing: 1px;
+  display: inline-block;
+  padding: 10px 30px;
+  border-radius: 50px;
+  transition: 0.6s;
+  color: #3498db;
+  border: 2px solid #3498db;
+  text-decoration: none;
+}
+#header .btn-get-started:hover{
+  background: #3498db;
+  color: #fff;
+}
+#header .homeabout img{
+  height: 75vh;
+}
+#header .animated{
+  animation: up-down 2s ease-in-out infinite alternate-reverse both;
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+}
+@-webkit-keyframes up-down{
+  0%{
+    transform: translateY(10px);
+
+  }
+  100%{
+    transform: translateY(-10px);
   }
 }
+@keyframes up-down{
+  0%{
+    transform: translateY(10px);
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
   }
-  to {
-    transform: rotate(360deg);
+  100%{
+    transform: translateY(-10px);
   }
+}
+.nav-link:hover{
+text-decoration: underline;
+color: #3498db;
+}
+.card img{
+  height: 200px;
+}
+/* @media only screen and (max-width:600px) {
+  .homeabout{
+    margin-top: 50%;
+    justify-content: center;
+    padding-right: 10%;
+  }
+  .text-center{
+    margin-top: 51%;
+  }
+} */
+/* .d-flex{
+  float:right 
+ } */
+Footer.text-center{
+  margin-top: 32px;
+}
+.orderbt{
+  float:right;
+   width:200px;
+   height:40px;
+  margin-right:20px;
+  outline: none;
+  border: none;
+  text-decoration: none;
+  background-color: #0567fc;
+  border-radius: 20px;
+}
+.orderbt:hover{
+  background-color: #0a58ca;
+  color: aliceblue;
+  text-decoration: none;
 }
