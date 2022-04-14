@@ -1,4 +1,7 @@
-import React, {useState} from "react";
+import React, {useState,useEffect} from "react";
+import { useDispatch } from 'react-redux';
+import { showData } from "../actions/index";
+
 
 const Contact = ()  => {
     const[data, setData] = useState({
@@ -7,6 +10,13 @@ const Contact = ()  => {
         email:'',
         msg:'',
     });
+    const dispatch = useDispatch();
+
+   
+    useEffect(() => {
+        localStorage.setItem('myData',JSON.stringify(data));
+    },[data])
+  
     const InputEvent = (e) =>{
        const {name, value} = e.target;
        setData((preVal) => {
@@ -19,6 +29,7 @@ const Contact = ()  => {
     }
     const formSubmit= (e) =>{
      e.preventDefault();
+    //  localStorage.setItem('myData');
      alert(`My name is ${data.fullname}. My mobile number is ${data.phone}
      my email is ${data.email} Here is what T want to say ${data.msg}`)
     }
@@ -30,7 +41,7 @@ const Contact = ()  => {
 <div className="container contact_div">
     <div className="row">
         <div className="col-md-6 col-10 mx-auto">
-            <form onSubmit={formSubmit}>
+            <form onSubmit={formSubmit} onClick={() => dispatch(showData(data))}>
             <div className="mb-3">
   <label  className="form-label">FullName</label>
   <input type="text" className="form-control" id="exampleFormControlInput1" 
@@ -57,7 +68,7 @@ const Contact = ()  => {
    placeholder="seacode@example.com"  required/>
 </div>
 <div className="mb-3">
-  <label for="exampleFormControlTextarea1" className="form-label">Message</label>
+  <label htmlFor="exampleFormControlTextarea1" className="form-label">Message</label>
   <textarea className="form-control" id="exampleFormControlTextarea1" rows="3"
   name="msg"
   value={data.msg}

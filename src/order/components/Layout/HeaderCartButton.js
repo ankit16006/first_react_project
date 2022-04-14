@@ -4,8 +4,12 @@ import { useContext,useEffect,useState } from "react";
 import CartIcon from "../Cart/CartIcon";
 import CartContext from "../../store/cart-context";
 import classes from "./HeaderCartButton.module.css";
+import { useSelector } from "react-redux";
 
 const HeaderCartButton = (props) => {
+  const listData = useSelector((state) => 
+    state.todoReducers.list.item.fullname)
+ console.log(listData)
     const [btnIsHighlighted,setBtnIsHighlighted] = useState(false);
   const cartCtx = useContext(CartContext);
   // console.log(cartCtx)
@@ -40,7 +44,9 @@ return () => {
         <CartIcon />
       </span>
       <span>Your Cart</span>
+      {/* <span>{listData}</span> */}
       <span className={classes.badge}>{numberOfCartItems}</span>
+     
     </button>
   );
 };
