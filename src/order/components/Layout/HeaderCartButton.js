@@ -8,8 +8,8 @@ import { useSelector } from "react-redux";
 
 const HeaderCartButton = (props) => {
   const listData = useSelector((state) => 
-    state.todoReducers.list.item.fullname)
- console.log(listData)
+    state.todoReducers.list)
+//  console.log(listData)
     const [btnIsHighlighted,setBtnIsHighlighted] = useState(false);
   const cartCtx = useContext(CartContext);
   // console.log(cartCtx)
@@ -38,16 +38,30 @@ return () => {
 }
 
 }, [items]);
-  return (
+  return ( 
+  <>
     <button className={btnClasses} onClick={props.onClick}>
       <span className={classes.icon}>
         <CartIcon />
       </span>
       <span>Your Cart</span>
-      {/* <span>{listData}</span> */}
       <span className={classes.badge}>{numberOfCartItems}</span>
      
     </button>
+    <div className="show" >
+      {listData.map((elem) => {
+        return (
+          <div className="nameshow" key={elem.id}>
+          <h3> {elem.item.fullname} </h3>
+          
+          </div>
+        )
+        
+            
+          // console.log(elem.item.fullname)
+      })}
+    </div>
+    </>
   );
 };
 
